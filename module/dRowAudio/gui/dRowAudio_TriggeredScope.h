@@ -128,7 +128,7 @@ public:
     /** @internal */
     int useTimeSlice() override;
 
-private:
+protected:
     //==============================================================================
     OptionalScopedPointer<TimeSliceThread> backgroundThreadToUse;
 
@@ -174,9 +174,9 @@ private:
     CriticalSection imageLock;
 
     //==============================================================================
-    void processPendingSamples();
-    void renderImage();
-    int getTriggerPos();
+    virtual void processPendingSamples();
+    virtual void renderImage();
+    virtual int getTriggerPos();
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (TriggeredScope)

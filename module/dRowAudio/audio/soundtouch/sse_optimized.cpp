@@ -67,7 +67,11 @@ using namespace soundtouch;
 //////////////////////////////////////////////////////////////////////////////
 
 #include "TDStretch.h"
-#include <xmmintrin.h>
+#ifdef __x86_64__
+   #include <xmmintrin.h>
+#else
+  #include "sse2neon.h"
+#endif
 #include <math.h>
 
 // Calculates cross correlation of two buffers
